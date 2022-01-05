@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @using (Html.BeginForm("Save", "Rent", FormMethod.Post, new { id = "popupForm" }))
+    {
+        <div>
+            <h1>Yacht Rent</h1>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Yacht Name</label>
+            <select class="form-control" id="YachtName" name="YachtName" onchange="return GetFee(this)">
+                <option value="Select">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Customer Name</label>
+            <select class="form-control" id="CustomerName" name="CustomerName">
+                <option value="Select">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label class="form-label">Fee</label>
+        <input type="text" id="Fee" name="Fee" class="form-control" placeholder="Fee"  />
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label">Start Date</label>
+            <input type="date" id="startDate" name="startDate" class="form-control" placeholder="Start Date" required />
+        </div>
+        <div class="form-group">
+            <label class="form-label">End Date</label>
+            <input type="date" id="endDate" name="endDate" class="form-control" placeholder="End Date" required />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+
+    }
+</div>
+
+@section scripts
+    {
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script>
+        
+       
+            $(function () {
+
+            AjaxCall('/Rent/GetYacht', null).done(function (data) {
+                if (data.length > 0) {
+                    $('#YachtName').html('');
+                    var options = '';
+                    options += '<option value="Select">Select</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        options += '<option value="' + data[i].YachtName + '">' + data[i].YachtName + '</option>';
+                    }
+                    $('#YachtName').append(options);
+                    
+                }
+            }).fail(function (error) {
+                alert(error.StatusText);
+            });      
+        });
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        }
+        
+    </script>     
+    <script>
+
+        $(function () {
+
+            AjaxCall('/Rent/GetCustomerName', null).done(function (data) {
+                if (data.length > 0) {
+                    $('#CustomerName').html('');
+                    var options = '';
+                    options += '<option value="Select">Select</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        options += '<option value="' + data[i].CustomerName + '">' + data[i].CustomerName + '</option>';
+                    }
+                    $('#CustomerName').append(options);
+
+                }
+            }).fail(function (error) {
+                alert(error.StatusText);
+            });
+
+            
+
+        });
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        }
+    </script>
+    <script>
+        function GetFee() {
+            var selected_val = $('#YachtName').find(":selected").attr('value');
+            alert(selected_val);
+            $.ajax({
+                type: "POST",
+                url: "/Rent/GetFee",
+                data: "yachtName=" + selected_val,
+                success: function (data) {
+                    if (data.length > 0) {
+                        $('#Fee').val(data[0].Price);
+                        console.log(data)
+                    }
+                    else {
+                        $('#Fee').val('');
+                    }
+                }
+            });
+        }
+    </script>
+    
+
+
+}
+
+
+
