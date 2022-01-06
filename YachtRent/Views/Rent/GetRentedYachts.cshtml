@@ -44,8 +44,8 @@
             @Html.DisplayFor(modelItem => item.EndDate)
         </td> 
         <td>
-            @Html.ActionLink("Edycja", "Edit", new { id = item.Id }) |           
-            @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
+            @Html.ActionLink("Edycja", "Edit", new { id = item.Id}, new { @class = "btn btn-primary" }) |           
+            @Html.ActionLink("Usuń", "Delete", new { id = item.Id}, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

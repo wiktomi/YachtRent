@@ -7,7 +7,7 @@
 <h2>Lista jachtów</h2>
 
 <p>
-    @Html.ActionLink("Dodaj nowy", "Create")
+    @Html.ActionLink("Dodaj nowy", "Create", new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -34,9 +34,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Avaliable)
         </th>
         <th></th>
     </tr>
@@ -66,14 +63,11 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
-        </td>
+        </td>        
         <td>
-            @Html.DisplayFor(modelItem => item.Avaliable)
-        </td>
-        <td>
-            @Html.ActionLink("Edytuj", "Edit", new { id=item.YachtID }) |
-            @Html.ActionLink("Szczegóły", "Details", new { id=item.YachtID }) |
-            @Html.ActionLink("Usuń", "Delete", new { id=item.YachtID })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.YachtID }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.YachtID }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Usuń", "Delete", new { id=item.YachtID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
