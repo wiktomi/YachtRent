@@ -4,7 +4,7 @@
     ViewBag.Title = "GetRentedYachts";
 }
 
-<h2>Rented Yachts</h2>
+<h2>Wypożyczone jachty</h2>
 
 <table class="table">
     <tr>
@@ -44,8 +44,8 @@
             @Html.DisplayFor(modelItem => item.EndDate)
         </td> 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |           
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Edycja", "Edit", new { id = item.Id }) |           
+            @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

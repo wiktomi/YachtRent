@@ -7,36 +7,36 @@
     @using (Html.BeginForm("Save", "Rent", FormMethod.Post, new { id = "popupForm" }))
     {
         <div>
-            <h1>Yacht Rent</h1>
+            <h1>Wypożyczalnia jachtów</h1>
         </div>
 
         <div class="form-group">
-            <label class="form-label">Yacht Name</label>
+            <label class="form-label">Nazwa jachtu</label>
             <select class="form-control" id="YachtName" name="YachtName" onchange="return GetFee(this)">
                 <option value="Select">Select</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-label">Customer Name</label>
+            <label class="form-label">Imię klienta</label>
             <select class="form-control" id="CustomerName" name="CustomerName">
                 <option value="Select">Select</option>
             </select>
         </div>
         <div class="form-group">
-        <label class="form-label">Fee</label>
+        <label class="form-label">Opłata</label>
         <input type="text" id="Fee" name="Fee" class="form-control" placeholder="Fee"  />
         </div>
         
         <div class="form-group">
-            <label class="form-label">Start Date</label>
+            <label class="form-label">Data startu rezerwacji</label>
             <input type="date" id="startDate" name="startDate" class="form-control" placeholder="Start Date" required />
         </div>
         <div class="form-group">
-            <label class="form-label">End Date</label>
+            <label class="form-label">Data końca rezerwacji</label>
             <input type="date" id="endDate" name="endDate" class="form-control" placeholder="End Date" required />
         </div>
         <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-success" />
+            <input type="submit" value="Rezerwuj" class="btn btn-success" />
         </div>
 
     }
