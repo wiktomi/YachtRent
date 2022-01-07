@@ -1,31 +1,30 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<a style="display:block" href="@Url.Action("Index", "Home")">
+    <div class="jumbotron">
+        <h1 style="text-align:center; font-family:'Times New Roman', Times, serif">Wypożyczalnia jachtów</h1>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </a>
+    <div class="row" style="background-image: url('/Content/jacht.jpg')">
+        <div class="col-md-4">
+            <h2>O jachtach</h2>
+            <p style="font-weight:bold">
+                Jacht – jednostka pływająca o napędzie żaglowym lub motorowym, w zależności od
+                konstrukcji i wyposażenia przeznaczona najczęściej do celów rekreacyjnych lub turystycznych.
+                Jachty budowane i wykorzystywane są także do uprawiania sportu, do celów szkoleniowych, reprezentacyjnych lub wychowania morskiego
+            </p>
+            <p><a class="btn btn-default" href="https://pl.wikipedia.org/wiki/Jacht">Więcej &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>O miejscach</h2>
+            <p style="font-weight:bold">Polska to cudowny, zróżnicowany pod względem krajobrazów kraj. Jesteśmy wspaniałym rajem tak dla zdobywców gór, jak i spragnionych przygód miłośników sportów wodnych. Jachting w Polsce staje się coraz bardziej popularny. Rośnie liczba prywatnych jachtów, jak i wypożyczalni tego sprzętu na wynajem. Gdzie w takim razie znajdują się najciekawsze w Polsce miejsca do żeglugi?</p>
+            <p><a class="btn btn-default" href="https://myslipotarganej.pl/najciekawsze-miejsca-w-polsce-do-zeglugi-jachtem/#:~:text=Niewiele%20rzek%20daje%20mo%C5%BCliwo%C5%9B%C4%87%20przep%C5%82yni%C4%99cia,te%C5%BC%20Odr%C4%99%2C%20Wart%C4%99%20czy%20Note%C4%87.">Więcej &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Kontakt</h2>
+            <p style="font-weight:bold">Krystian Kruszewki</p>
+            <p style="font-weight:bold">Tel: 555444333</p>
+            <p style="font-weight:bold">E-mail:KrystianK@gmail.com</p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
